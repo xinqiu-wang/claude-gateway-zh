@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SOURCE="$(readlink -f -- "${BASH_SOURCE[0]}")"
+HERE="$(cd -- "$(dirname -- "$SOURCE")" && pwd)"
+for tool in python3 node; do
+  command -v "$tool" >/dev/null || { printf '缺少依赖：%s。请先执行 bash install.sh。\n' "$tool" >&2; exit 1; }
+done
+if [[ $# -eq 0 ]]; then set -- apply --auth sudo; fi
+exec python3 -I "$HERE/inject.py" "$@"

@@ -1,0 +1,12 @@
+{
+  "name": "claude-gateway-zh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local Chinese UI injection and rollback tool for Claude Desktop gateway mode",
+  "engines": {"node": ">=20.19.0"},
+  "scripts": {"test": "node test-overlay.mjs"},
+  "dependencies": {
+    "@formatjs/icu-messageformat-parser": "3.5.23",
+    "acorn": "8.19.0"
+  }
+}
